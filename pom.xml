@@ -58,5 +58,6 @@
 
     <modules>
         <module>quickstart</module>
+        <module>springbootdemo</module>
     </modules>
 </project>
