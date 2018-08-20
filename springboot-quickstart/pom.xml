@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>springbootdemo</artifactId>
+    <artifactId>springboot-quickstart</artifactId>
 
     <dependencies>
         <!-- Web 依赖 -->
@@ -23,4 +23,5 @@
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
     </dependencies>
+
 </project>
