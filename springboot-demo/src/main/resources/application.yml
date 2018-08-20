@@ -1,5 +1,17 @@
 ## 书信息
 demo:
-    book:
-        name: spring boot
-        writer: writer
+  book:
+    name: spring boot
+    writer: writer
+
+spring:
+  jpa:
+    ## 是否显示 SQL 语句
+    show-sql: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://rm-wz9fu71t24152hy602o.mysql.rds.aliyuncs.com:3306/upms?autoReconnect=true&autoReconnectForPools=true&interactiveClient=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: SamllRP_001!
+
+# springboot默认static中放静态页面，而templates中放动态页面
