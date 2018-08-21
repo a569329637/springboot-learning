@@ -22,5 +22,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
+        <!-- 自定义 starter -->
+        <dependency>
+            <groupId>com.gsq.learning</groupId>
+            <artifactId>springboot-example-starter</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>

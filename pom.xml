@@ -79,5 +79,6 @@
     <modules>
         <module>springboot-quickstart</module>
         <module>springboot-demo</module>
+        <module>springboot-example-starter-test</module>
     </modules>
 </project>

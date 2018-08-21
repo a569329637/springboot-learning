@@ -15,3 +15,9 @@ spring:
     password: SamllRP_001!
 
 # springboot默认static中放静态页面，而templates中放动态页面
+
+example:
+  service:
+    enable: true
+    prefix: spring
+    suffix: boot
