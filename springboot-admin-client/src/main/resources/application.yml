@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: "Admin Client"
+  boot:
+    admin:
+      client:
+        # 通过 http 接口上报监控信息，spring cloud 可以通过 Eureka 服务发现上报
+        url: "http://localhost:8088"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        # 开放所有的接口监听
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    logfile:
+      enabled: true
+

@@ -17,6 +17,9 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <junit.version>4.12</junit.version>
+        <springboot.version>2.0.4.RELEASE</springboot.version>
+        <mysql.version>6.0.6</mysql.version>
+        <admin.version>2.0.2</admin.version><!-- 对应的 Spring Boot 2.0.4.RELEASE -->
     </properties>
 
     <dependencyManagement>
@@ -25,14 +28,27 @@
                 <!-- Import dependency management from Spring Boot -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.0.4.RELEASE</version>
+                <version>${springboot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- mysql -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>6.0.6</version>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!-- 监控 server -->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>${admin.version}</version>
+            </dependency>
+            <!-- 监控 client -->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${admin.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -65,6 +81,7 @@
         <module>springboot-quickstart</module>
         <module>springboot-demo</module>
         <module>springboot-example-starter</module>
-        <module>springboot-actuator</module>
+        <module>springboot-admin-server</module>
+        <module>springboot-admin-client</module>
     </modules>
 </project>

@@ -1,0 +1,13 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: admin-service
+  output:
+    ansi:
+      enabled: always
+  boot:
+    admin:
+      # 监控的断点有哪些
+      probed-endpoints: health, env, etrics, threaddump:dump, httptrace:trace,jolokia, info, logfile, refresh, flyway, liquibase, heapdump, loggers, auditevents
