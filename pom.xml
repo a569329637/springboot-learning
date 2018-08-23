@@ -51,6 +51,7 @@
                 <artifactId>spring-boot-admin-starter-client</artifactId>
                 <version>${admin.version}</version>
             </dependency>
+            <!-- mybatis orm -->
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -90,5 +91,6 @@
         <module>springboot-admin-server</module>
         <module>springboot-admin-client</module>
         <module>springboot-mybatis-annotation</module>
+        <module>springboot-redis-annotation</module>
     </modules>
 </project>
