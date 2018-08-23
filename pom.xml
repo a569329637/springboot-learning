@@ -20,6 +20,7 @@
         <springboot.version>2.0.4.RELEASE</springboot.version>
         <mysql.version>6.0.6</mysql.version>
         <admin.version>2.0.2</admin.version><!-- 对应的 Spring Boot 2.0.4.RELEASE -->
+        <mybatis.starter.version>1.2.0</mybatis.starter.version>
     </properties>
 
     <dependencyManagement>
@@ -49,6 +50,11 @@
                 <groupId>de.codecentric</groupId>
                 <artifactId>spring-boot-admin-starter-client</artifactId>
                 <version>${admin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.starter.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -83,5 +89,6 @@
         <module>springboot-example-starter</module>
         <module>springboot-admin-server</module>
         <module>springboot-admin-client</module>
+        <module>springboot-mybatis-annotation</module>
     </modules>
 </project>
