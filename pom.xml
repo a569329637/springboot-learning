@@ -92,5 +92,6 @@
         <module>springboot-admin-client</module>
         <module>springboot-mybatis-annotation</module>
         <module>springboot-redis-annotation</module>
+        <module>springboot-mongo</module>
     </modules>
 </project>
