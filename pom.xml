@@ -93,5 +93,6 @@
         <module>springboot-mybatis-annotation</module>
         <module>springboot-redis-annotation</module>
         <module>springboot-mongo</module>
+        <module>springboot-shiro</module>
     </modules>
 </project>
