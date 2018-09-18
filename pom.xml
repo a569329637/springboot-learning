@@ -94,5 +94,6 @@
         <module>springboot-redis-annotation</module>
         <module>springboot-mongo</module>
         <module>springboot-shiro</module>
+        <module>springboot-shiro-jwt</module>
     </modules>
 </project>
