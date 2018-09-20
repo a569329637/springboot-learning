@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Security Register </title>
+</head>
+<body>
+<div th:if="${param.error}">
+    注册失败，账号已存在!
+</div>
+<div th:if="${param.success}">
+    注册成功，可以登录了！
+</div>
+<h1 th:text="${hello}"></h1>
+<form th:action="@{/register}" method="post">
+    <div><label> 用户名 : <input type="text" name="username"/> </label></div>
+    <div><label> 密  码 : <input type="password" name="password"/> </label></div>
+    <div><label> 昵  称 : <input type="text" name="nickname"/> </label></div>
+    <div><label> 角  色 : <input type="text" name="roles"/> </label></div>
+    <div><input type="submit" value="注册"/></div>
+</form>
+</body>
+</html>

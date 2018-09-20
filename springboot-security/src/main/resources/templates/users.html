@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Security Register </title>
+</head>
+<body>
+
+<h1 th:text="${title}">Hello, Spring Boot!</h1>
+
+<table>
+    <tr>
+        <th>用户名</th>
+        <th>密  码</th>
+        <th>昵  称</th>
+        <th>角  色</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.username}">admin</td>
+        <td th:text="${user.password}">123456</td>
+        <td th:text="${user.nickname}">管理员</td>
+        <td th:text="${user.roles}">USER</td>
+    </tr>
+</table>
+
+</body>
+</html>
