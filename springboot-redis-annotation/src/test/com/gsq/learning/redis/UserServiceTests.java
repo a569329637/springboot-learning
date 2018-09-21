@@ -35,33 +35,33 @@ public class UserServiceTests {
     public void testRedisAnnotation() {
         userService.save(user);
 
-        System.out.println("1");
+        System.out.println("step 1");
         User u1 = userService.findById(user.getId());
         System.out.println("u1 = " + u1);
 
-        System.out.println("2");
+        System.out.println("step 2");
         User u2 = userService.findById(user.getId());
         System.out.println("u2 = " + u2);
 
-        System.out.println(3);
+        System.out.println("step 3");
         user.setBirthday("2010-01-01");
         user.setAge(10);
         userService.update(user);
         User u3 = userService.findById(user.getId());
         System.out.println("u3 = " + u3);
 
-        userService.delete(user);
+        //userService.delete(user);
     }
 
     @Test
     public void testChineseKey() {
         userService.insert(user);
 
-        System.out.println("1");
+        System.out.println("step 1");
         User u1 = userService.findByName(user.getName());
         System.out.println("u1 = " + u1);
 
-        System.out.println("2");
+        System.out.println("step 2");
         User u2 = userService.findByName(user.getName());
         System.out.println("u2 = " + u2);
     }
