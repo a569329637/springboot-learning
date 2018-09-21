@@ -44,20 +44,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterAfter(new AfterCsrfFilter(), CsrfFilter.class);
     }
 
-    // 自定义用户信息来认证
+    /**
+     * 自定义身份验证管理器
+     *
+     * AuthenticationManagerBuilder 它非常适用于设置内存，JDBC或LDAP 中的用户详细信息，或添加自定义的UserDetailsService
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(anyUserDetailsService)
-            .passwordEncoder(new BCryptPasswordEncoder());
-    }
-
-    // 自定义内存用户信息来认证
-//    @Autowired
-//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        // 内存
 //        auth.inMemoryAuthentication()
 //                .passwordEncoder(new BCryptPasswordEncoder())
 //                .withUser("admin")
 //                .password(new BCryptPasswordEncoder().encode("123456"))
 //                .roles("USER");
-//    }
+
+        // jdbc
+//        auth.jdbcAuthentication().dataSource(dataSource).withUser("dave")
+//                .password("secret").roles("USER");
+
+        // 自定义 UserDetailsService
+        auth.userDetailsService(anyUserDetailsService)
+                .passwordEncoder(new BCryptPasswordEncoder());
+    }
 }
