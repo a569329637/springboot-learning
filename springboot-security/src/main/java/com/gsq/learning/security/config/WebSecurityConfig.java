@@ -29,7 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests() // 定义哪些URL需要被保护、哪些不需要被保护
-                .antMatchers("/", "/register", "/login").permitAll() // 不需要任何认证就可以访问
+                .antMatchers("/", "/register", "/login", "/cookies").permitAll() // 不需要任何认证就可以访问
                 .antMatchers("/users").hasRole("ADMIN") // 这里的角色不能以 ROLE_ 开头
                 .anyRequest().authenticated() // 其他的路径都必须通过身份验证
                 .and()
