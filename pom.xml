@@ -17,9 +17,10 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <springboot.version>2.0.4.RELEASE</springboot.version>
-        <mysql.version>6.0.6</mysql.version>
+        <mysql.version>5.1.38</mysql.version>
         <admin.version>2.0.2</admin.version><!-- 对应的 Spring Boot 2.0.4.RELEASE -->
         <mybatis.starter.version>1.2.0</mybatis.starter.version>
+        <druid.version>1.0.26</druid.version>
     </properties>
 
     <dependencyManagement>
@@ -55,6 +56,12 @@
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.starter.version}</version>
+            </dependency>
+            <!-- druid数据库连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -96,5 +103,6 @@
         <module>springboot-shiro</module>
         <module>springboot-shiro-jwt</module>
         <module>springboot-security</module>
+        <module>springboot-sharding-jdbc</module>
     </modules>
 </project>
