@@ -104,5 +104,6 @@
         <module>springboot-shiro-jwt</module>
         <module>springboot-security</module>
         <module>springboot-sharding-jdbc</module>
+        <module>springboot-xa</module>
     </modules>
 </project>
