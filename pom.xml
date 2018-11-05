@@ -105,5 +105,6 @@
         <module>springboot-security</module>
         <module>springboot-sharding-jdbc</module>
         <module>springboot-xa</module>
+        <module>springboot-rocketmq</module>
     </modules>
 </project>
