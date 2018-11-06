@@ -4,6 +4,8 @@ import com.gsq.learning.mq.config.RocketMqProperties;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.remoting.common.RemotingHelper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class OnewayProducer {
 
+    private Logger logger = LoggerFactory.getLogger(OnewayProducer.class);
+
     @Autowired
     private RocketMqProperties rocketMqProperties;
 
@@ -23,10 +27,12 @@ public class OnewayProducer {
 
         producer.start();
         for (int i = 0; i < 3; ++ i) {
-            Message msg = new Message("TopicTest",
+            Message msg = new Message(
+                    "TopicTest",
                     "TagA",
                     ("Hello RocketMQ " + i).getBytes(RemotingHelper.DEFAULT_CHARSET));
             producer.sendOneway(msg);
+            logger.info("单向消息发送成功：msg = {}", msg);
         }
         producer.shutdown();
     }

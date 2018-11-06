@@ -7,6 +7,8 @@ import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.common.message.MessageQueue;
 import org.apache.rocketmq.remoting.common.RemotingHelper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,8 @@ import java.util.List;
 @Service
 public class OrderedProducer {
 
+    private Logger logger = LoggerFactory.getLogger(OrderedProducer.class);
+
     @Autowired
     private RocketMqProperties rocketMqProperties;
 
@@ -28,7 +32,8 @@ public class OrderedProducer {
         producer.start();
         int orderId = 100;
         for (int i = 0; i < 100; ++ i) {
-            Message msg = new Message("TopicOrderTest",
+            Message msg = new Message(
+                    "TopicOrderTest",
                     "TagA",
                     "KEY" + i,
                     ("Hello RocketMQ " + i).getBytes(RemotingHelper.DEFAULT_CHARSET));
@@ -46,7 +51,7 @@ public class OrderedProducer {
                     return mqs.get(i);
                 }
             }, orderId);
-            System.out.printf("%s%n", sendResult);
+            logger.info("顺序消息发送成功：sendResult = {}", sendResult);
         }
         producer.shutdown();
     }

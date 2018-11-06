@@ -1,11 +1,9 @@
 package com.gsq.learning.mq.Controller;
 
-import com.gsq.learning.mq.simple.AsyncProducer;
-import com.gsq.learning.mq.simple.OnewayProducer;
-import com.gsq.learning.mq.simple.OrderedProducer;
-import com.gsq.learning.mq.simple.SyncProducer;
+import com.gsq.learning.mq.simple.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -26,7 +24,10 @@ public class SimpleController {
     @Autowired
     private OrderedProducer orderedProducer;
 
-    @GetMapping("/simple/sync")
+    @Autowired
+    private TransactionProducer transactionProducer;
+
+    @GetMapping("/sync")
     public Object sync() {
         try {
             syncProducer.send();
@@ -36,7 +37,7 @@ public class SimpleController {
         return "success";
     }
 
-    @GetMapping("/simple/async")
+    @GetMapping("/async")
     public Object async() {
         try {
             asyncProducer.send();
@@ -46,7 +47,7 @@ public class SimpleController {
         return "success";
     }
 
-    @GetMapping("/simple/oneway")
+    @GetMapping("/oneway")
     public Object oneway() {
         try {
             onewayProducer.send();
@@ -56,10 +57,28 @@ public class SimpleController {
         return "success";
     }
 
-    @GetMapping("/simple/order")
+    @GetMapping("/order")
     public Object order() {
         try {
             orderedProducer.send();
+        } catch (Exception e) {
+            return "failed";
+        }
+        return "success";
+    }
+
+    @GetMapping("/transaction")
+    public Object transaction(@RequestParam(value = "index",required = false) Integer index) {
+        try {
+            if (null == index) {
+                transactionProducer.send();
+            } else if (index == 1) {
+                transactionProducer.send1();
+            } else if (index == 2) {
+                transactionProducer.send2();
+            } else {
+                return "index error";
+            }
         } catch (Exception e) {
             return "failed";
         }
