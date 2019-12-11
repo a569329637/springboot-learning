@@ -31,8 +31,16 @@ public class ENDEC {
         commandPacketMap.put(Command.LOGIN_RESPONSE, LoginResponsePacket.class);
         commandPacketMap.put(Command.LOGOUT_REQUEST, LogoutRequestPacket.class);
         commandPacketMap.put(Command.LOGOUT_RESPONSE, LogoutResponsePacket.class);
-        commandPacketMap.put(Command.PRIVATE_REQUEST, PrivateChatRequestPacket.class);
-        commandPacketMap.put(Command.PRIVATE_RESPONSE, PrivateChatResponsePacket.class);
+        commandPacketMap.put(Command.PRIVATE_CHAT_REQUEST, PrivateChatRequestPacket.class);
+        commandPacketMap.put(Command.PRIVATE_CHAT_RESPONSE, PrivateChatResponsePacket.class);
+        commandPacketMap.put(Command.CREATE_GROUP_CHAT_REQUEST, CreateGroupChatRequestPacket.class);
+        commandPacketMap.put(Command.CREATE_GROUP_CHAT_RESPONSE, CreateGroupChatResponsePacket.class);
+        commandPacketMap.put(Command.JOIN_GROUP_CHAT_REQUEST, JoinGroupChatRequestPacket.class);
+        commandPacketMap.put(Command.JOIN_GROUP_CHAT_RESPONSE, JoinGroupChatResponsePacket.class);
+        commandPacketMap.put(Command.EXIT_GROUP_CHAT_REQUEST, ExitGroupChatRequestPacket.class);
+        commandPacketMap.put(Command.EXIT_GROUP_CHAT_RESPONSE, ExitGroupChatResponsePacket.class);
+        commandPacketMap.put(Command.GROUP_CHAT_REQUEST, GroupChatRequestPacket.class);
+        commandPacketMap.put(Command.GROUP_CHAT_RESPONSE, GroupChatResponsePacket.class);
 
         serializerMap = new HashMap<>();
         serializerMap.put(SerializerAlgorithm.JSON, new JsonSerializer());

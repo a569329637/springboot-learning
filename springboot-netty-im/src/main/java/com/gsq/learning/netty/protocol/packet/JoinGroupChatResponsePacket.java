@@ -10,13 +10,14 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-public class PrivateChatRequestPacket implements Packet {
+public class JoinGroupChatResponsePacket implements Packet {
 
-    private String toUserId;
-    private String message;
+    private String groupName;
+    private String groupId;
+    private String username;
 
     @Override
     public byte getCommand() {
-        return Command.PRIVATE_CHAT_REQUEST;
+        return Command.JOIN_GROUP_CHAT_RESPONSE;
     }
 }

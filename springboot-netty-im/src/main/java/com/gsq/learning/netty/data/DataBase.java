@@ -1,6 +1,7 @@
 package com.gsq.learning.netty.data;
 
 import io.netty.channel.Channel;
+import io.netty.channel.group.ChannelGroup;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +16,7 @@ public class DataBase {
     private static Map<String, User> USERS;
 
     private static Map<String, Channel> onlineUserChannels;
+    private static Map<String, ChannelGroup> channelGroupMap;
 
     static {
         // 初始化用户
@@ -31,7 +33,7 @@ public class DataBase {
         }
 
         onlineUserChannels = new HashMap<>();
-
+        channelGroupMap = new HashMap<>();
     }
 
     public static User loginValidate(String username, String password) {
@@ -54,6 +56,14 @@ public class DataBase {
 
     public static Channel getOnlineUser(String userId) {
         return onlineUserChannels.get(userId);
+    }
+
+    public static void createChannelGroup(String groupId, ChannelGroup channelGroup) {
+        channelGroupMap.put(groupId, channelGroup);
+    }
+
+    public static ChannelGroup getChannelGroup(String groupId) {
+        return channelGroupMap.get(groupId);
     }
 
 }

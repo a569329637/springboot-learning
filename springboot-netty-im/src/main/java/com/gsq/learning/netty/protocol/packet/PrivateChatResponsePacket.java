@@ -17,6 +17,6 @@ public class PrivateChatResponsePacket implements Packet {
 
     @Override
     public byte getCommand() {
-        return Command.PRIVATE_RESPONSE;
+        return Command.PRIVATE_CHAT_RESPONSE;
     }
 }

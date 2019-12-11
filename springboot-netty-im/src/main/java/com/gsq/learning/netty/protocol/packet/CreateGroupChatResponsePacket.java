@@ -4,19 +4,22 @@ import com.gsq.learning.netty.protocol.command.Command;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 /**
  * @author guishangquan
  * @date 2019-12-11
  */
 @Setter
 @Getter
-public class PrivateChatRequestPacket implements Packet {
+public class CreateGroupChatResponsePacket implements Packet {
 
-    private String toUserId;
-    private String message;
+    private String groupName;
+    private String groupId;
+    private List<String> usernameList;
 
     @Override
     public byte getCommand() {
-        return Command.PRIVATE_CHAT_REQUEST;
+        return Command.CREATE_GROUP_CHAT_RESPONSE;
     }
 }

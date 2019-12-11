@@ -1,10 +1,7 @@
 package com.gsq.learning.netty.client;
 
 import com.gsq.learning.netty.client.console.ConsoleManager;
-import com.gsq.learning.netty.client.handler.ErrorMessageHandler;
-import com.gsq.learning.netty.client.handler.LoginResponseHandler;
-import com.gsq.learning.netty.client.handler.LogoutResponseHandler;
-import com.gsq.learning.netty.client.handler.PrivateChatResponseHandler;
+import com.gsq.learning.netty.client.handler.*;
 import com.gsq.learning.netty.codec.PacketDecoder;
 import com.gsq.learning.netty.codec.PacketEncoder;
 import com.gsq.learning.netty.codec.Spliter;
@@ -55,6 +52,10 @@ public class NettyClient {
                             ch.pipeline().addLast(new LoginResponseHandler());
                             ch.pipeline().addLast(new LogoutResponseHandler());
                             ch.pipeline().addLast(new PrivateChatResponseHandler());
+                            ch.pipeline().addLast(new CreateGroupChatResponseHandler());
+                            ch.pipeline().addLast(new JoinGroupChatResponseHandler());
+                            ch.pipeline().addLast(new ExitGroupChatResponseHandler());
+                            ch.pipeline().addLast(new GroupChatResponseHandler());
                             ch.pipeline().addLast(new ErrorMessageHandler());
                             ch.pipeline().addLast(new PacketEncoder());
                         }

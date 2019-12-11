@@ -17,7 +17,7 @@ public class LoginConsole implements Console {
         String line = scanner.nextLine();
         String[] lines = line.split(" ");
         if (lines.length != 2) {
-            System.out.println("请输入用户名和密码格式错误");
+            System.out.println("输入用户名和密码格式错误");
             return;
         }
 

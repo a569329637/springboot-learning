@@ -19,6 +19,10 @@ public class ConsoleManager implements Console {
         consoleMap.put(1, new LoginConsole());
         consoleMap.put(2, new LogoutConsole());
         consoleMap.put(3, new PrivateChatConsole());
+        consoleMap.put(4, new CreateGroupChatConsole());
+        consoleMap.put(5, new JoinGroupChatConsole());
+        consoleMap.put(6, new ExitGroupChatConsole());
+        consoleMap.put(7, new GroupChatConsole());
     }
 
     @Override
@@ -26,7 +30,11 @@ public class ConsoleManager implements Console {
         System.out.println("\n请输入命令：");
         System.out.println("1. 登录");
         System.out.println("2. 登出");
-        System.out.println("3. 发送消息");
+        System.out.println("3. 发送私聊消息");
+        System.out.println("4. 创建群聊");
+        System.out.println("5. 加入群聊");
+        System.out.println("6. 退出群聊");
+        System.out.println("7. 发送群聊消息");
 
         String line = scanner.nextLine();
         int command;
