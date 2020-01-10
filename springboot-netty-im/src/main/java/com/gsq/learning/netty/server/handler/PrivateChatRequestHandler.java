@@ -7,6 +7,7 @@ import com.gsq.learning.netty.protocol.packet.PrivateChatResponsePacket;
 import com.gsq.learning.netty.session.Session;
 import com.gsq.learning.netty.utils.ErrorUtil;
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
@@ -16,7 +17,10 @@ import java.util.Date;
  * @author guishangquan
  * @date 2019-12-11
  */
+@ChannelHandler.Sharable
 public class PrivateChatRequestHandler extends SimpleChannelInboundHandler<PrivateChatRequestPacket> {
+
+    public final static PrivateChatRequestHandler INSTANCE = new PrivateChatRequestHandler();
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, PrivateChatRequestPacket msg) throws Exception {

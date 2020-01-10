@@ -6,6 +6,7 @@ import com.gsq.learning.netty.protocol.packet.ExitGroupChatResponsePacket;
 import com.gsq.learning.netty.session.Session;
 import com.gsq.learning.netty.utils.ErrorUtil;
 import com.gsq.learning.netty.utils.SessionUtil;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.group.ChannelGroup;
@@ -14,7 +15,10 @@ import io.netty.channel.group.ChannelGroup;
  * @author guishangquan
  * @date 2019-12-11
  */
+@ChannelHandler.Sharable
 public class ExitGroupChatRequestHandler extends SimpleChannelInboundHandler<ExitGroupChatRequestPacket> {
+
+    public final static ExitGroupChatRequestHandler INSTANCE = new ExitGroupChatRequestHandler();
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, ExitGroupChatRequestPacket msg) throws Exception {

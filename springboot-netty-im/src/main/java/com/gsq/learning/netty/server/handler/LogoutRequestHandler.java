@@ -7,6 +7,7 @@ import com.gsq.learning.netty.protocol.packet.LogoutResponsePacket;
 import com.gsq.learning.netty.session.Session;
 import com.gsq.learning.netty.utils.ErrorUtil;
 import com.gsq.learning.netty.utils.SessionUtil;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
@@ -14,7 +15,10 @@ import io.netty.channel.SimpleChannelInboundHandler;
  * @author guishangquan
  * @date 2019-12-11
  */
+@ChannelHandler.Sharable
 public class LogoutRequestHandler extends SimpleChannelInboundHandler<LogoutRequestPacket> {
+
+    public final static LogoutRequestHandler INSTANCE = new LogoutRequestHandler();
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, LogoutRequestPacket msg) throws Exception {

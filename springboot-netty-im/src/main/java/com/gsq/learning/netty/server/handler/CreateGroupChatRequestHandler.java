@@ -7,6 +7,7 @@ import com.gsq.learning.netty.protocol.packet.CreateGroupChatResponsePacket;
 import com.gsq.learning.netty.session.Session;
 import com.gsq.learning.netty.utils.SessionUtil;
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.group.ChannelGroup;
@@ -20,7 +21,10 @@ import java.util.List;
  * @author guishangquan
  * @date 2019-12-11
  */
+@ChannelHandler.Sharable
 public class CreateGroupChatRequestHandler extends SimpleChannelInboundHandler<CreateGroupChatRequestPacket> {
+
+    public final static CreateGroupChatRequestHandler INSTANCE = new CreateGroupChatRequestHandler();
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, CreateGroupChatRequestPacket msg) throws Exception {

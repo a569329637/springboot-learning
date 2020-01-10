@@ -1,7 +1,6 @@
 package com.gsq.learning.netty.server;
 
-import com.gsq.learning.netty.codec.PacketDecoder;
-import com.gsq.learning.netty.codec.PacketEncoder;
+import com.gsq.learning.netty.codec.PacketCodecHandler;
 import com.gsq.learning.netty.codec.Spliter;
 import com.gsq.learning.netty.server.handler.*;
 import io.netty.bootstrap.ServerBootstrap;
@@ -52,17 +51,19 @@ public class NettyServer {
                     .childHandler(new ChannelInitializer<NioSocketChannel>() {
                         @Override
                         protected void initChannel(NioSocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(new Spliter());
-                            ch.pipeline().addLast(new PacketDecoder());
-                            ch.pipeline().addLast(new LoginRequestHandler());
-                            ch.pipeline().addLast(new LogoutRequestHandler());
-                            ch.pipeline().addLast(new AuthHandler());
-                            ch.pipeline().addLast(new PrivateChatRequestHandler());
-                            ch.pipeline().addLast(new CreateGroupChatRequestHandler());
-                            ch.pipeline().addLast(new JoinGroupChatRequestHandler());
-                            ch.pipeline().addLast(new ExitGroupChatRequestHandler());
-                            ch.pipeline().addLast(new GroupChatRequestHandler());
-                            ch.pipeline().addLast(new PacketEncoder());
+                            ch.pipeline().addLast(new Spliter());// 要处理粘包拆包，是有状态的，所以不能使用单例模式
+                            ch.pipeline().addLast(PacketCodecHandler.INSTANCE);
+                            //ch.pipeline().addLast(new PacketDecoder());
+                            ch.pipeline().addLast(LoginRequestHandler.INSTANCE);
+                            ch.pipeline().addLast(LogoutRequestHandler.INSTANCE);
+                            ch.pipeline().addLast(AuthHandler.INSTANCE);
+                            ch.pipeline().addLast(ImHandler.INSTANCE);
+                            //ch.pipeline().addLast(PrivateChatRequestHandler.INSTANCE);
+                            //ch.pipeline().addLast(CreateGroupChatRequestHandler.INSTANCE);
+                            //ch.pipeline().addLast(JoinGroupChatRequestHandler.INSTANCE);
+                            //ch.pipeline().addLast(ExitGroupChatRequestHandler.INSTANCE);
+                            //ch.pipeline().addLast(GroupChatRequestHandler.INSTANCE);
+                            //ch.pipeline().addLast(new PacketEncoder());
                         }
                     });
 
