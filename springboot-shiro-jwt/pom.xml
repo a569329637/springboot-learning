@@ -14,7 +14,7 @@
     <name>springboot-shiro-jwt</name>
 
     <properties>
-        <shiro.version>1.4.0</shiro.version>
+        <shiro.version>1.7.0</shiro.version>
         <jjwt.version>0.9.0</jjwt.version>
     </properties>
 
