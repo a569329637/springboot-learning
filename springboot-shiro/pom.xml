@@ -14,7 +14,7 @@
     <name>springboot-shiro</name>
 
     <properties>
-        <shiro.version>1.4.0</shiro.version>
+        <shiro.version>1.7.0</shiro.version>
     </properties>
 
     <dependencies>
