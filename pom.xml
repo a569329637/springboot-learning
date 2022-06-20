@@ -17,7 +17,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <springboot.version>2.0.4.RELEASE</springboot.version>
-        <mysql.version>5.1.38</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
         <admin.version>2.0.2</admin.version><!-- 对应的 Spring Boot 2.0.4.RELEASE -->
         <mybatis.starter.version>1.2.0</mybatis.starter.version>
         <druid.version>1.0.26</druid.version>
